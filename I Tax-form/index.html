@@ -1,0 +1,865 @@
+
+<html>
+<head>
+
+    
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="jspdf.js"></script>
+<script src="jquery-2.1.3.js"></script>
+<script src="pdfFromHTML.js"></script>
+    <script src="income.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+input[type=text]  {
+    width: 98%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+
+}
+
+    input[type=date] {
+    width: 25%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;   
+    }
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+    font-size: 18px;
+    margin-left: 30px;
+    color: #003366;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 10px;
+    background-image: url(img.png);
+    padding: 20px;
+    border: 2px solid #336699;
+}
+
+.field {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.entry {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+
+.data:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.print {
+  margin-left: 250px;
+  margin-top: 80px;
+  font-size: 23px;
+
+}
+
+#demo1{
+  margin-left: -100px;
+  font-size: 18px;
+
+}
+
+#demo10 {
+  text-align: center;
+  font-size: 18px;
+}
+
+#demo19 {
+  margin-left: -50px;
+  text-align: center;
+  font-size: 18px;
+
+}
+
+#demo41 a {
+  text-align: center;
+  
+
+}
+#demo41  {
+  margin-left: 8%;
+  font-size: 23px;
+}
+
+
+
+
+
+
+h1 {
+  font-size: 40px;
+  color: #003366;
+}
+
+h2 {
+  color: #336699;
+}
+
+h3 {
+  color: #336699;
+}
+
+.view {
+  margin-left: 30px;
+  font-size: 18px;
+  margin-top: 70px;
+
+}
+
+a {
+  color: green;
+
+}
+
+a.view,  a:hover {
+  color: #660066;
+
+}
+
+table {
+    
+    width: 70%;
+    border-radius: 0px;
+    background-color: white;
+    margin-left: 150px;
+}
+
+td {
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
+    .field, .entry, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+</style>
+</head>
+<body>
+
+ 
+
+<div class="container">
+
+  <div class="head" >
+      <h1>Personal Information</h1>
+      <br><br>
+  </div>
+
+  <form>
+    <div class="data">
+      <div class="field">
+        <label for="fname">1) Full Name</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="fname" name="fullname" placeholder="Your full name..">
+      </div>
+    </div>
+    <div class="data">
+      <div class="field">
+        <label for="off_address">2) Official Address</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="off_addres" name="official_address" placeholder="Your Official Address..">
+      </div>
+    </div>
+    <div class="data">
+      <div class="field">
+        <label for="res_address">3) Residential Address</label>
+      </div>
+      <div class="entry">
+         <input type="text" id="res_addres" name="residential_address" placeholder="Your Residential Address..">
+      </div>
+    </div>
+    <div class="data">
+      <div class="field">
+        <label for="nic">4) NIC</label>
+      </div>
+      <div class="entry">
+         <input type="text" id="nic" name="nic" placeholder="Your NIC No..">
+      </div>
+    </div>
+    <div class="data">
+       <div class="field">
+        <label for="tele">5) Telephone No</label>
+      </div>
+      <div class="entry">
+         <input type="text" id="tele" name="telephone" placeholder="Your Telephone No..">
+      </div>
+    </div>
+     <div class="data">
+       <div class="field">
+        <label for="date">6) Date</label>
+      </div>
+      <div class="entry">
+         <input type="date" id="date" name="date">
+      </div>
+    </div>
+      <div class="data">
+       <div class="field">
+        <label for="tin">7) Taxpayes Identification No (TIN)</label>
+      </div>
+      <div class="entry">
+         <input type="text" id="tin" name="tin" placeholder="Your TIN No..">
+      </div>
+    </div>
+    
+    
+  </form>
+
+  <br><br><br>
+
+    
+
+
+    <div class="head" >
+      <h1>Structure of Assets & Liabilities</h1>
+      <h1>Individual</h1>
+      <br>
+    </div>
+    <h2>Part 1</h2>
+    <br>
+    <form>
+
+    <div class="data">
+      <div class="field">
+        <label for="immov_properties">a) Immovable Properties</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="immov_properties" name="immovable_properties">
+      </div>
+    </div>
+           
+    <div class="data">
+      <div class="field">
+        <label for="mov_properties">b) Movable Properties</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="mov_properties" name="movable_properties">
+      </div>
+    </div>
+           
+    <div class="data">
+      <div class="field">
+        <label for="busi_properties">c) Properties held as a part of Business</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="busi_properties" name="business_properties">
+      </div>
+    </div>
+           
+    <div class="data">
+      <div class="field">
+        <label for="liabilities">d) As Liabilities</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="liabilities" name="liabilities">
+      </div>
+    </div>
+    <br><br>       
+<h2>Part 2</h2>
+<br>
+             
+    <div class="data">
+      <div class="field">
+        <label for="assests">a) Any other assests acquired or gifts received</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="assests" name="assests">
+      </div>
+    </div>
+                
+    <div class="data">
+      <div class="field">
+        <label for="dis_assests">b) Disposal of Assests</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="dis_assests" name="disposal_assests">
+    </div>
+
+  </div>
+
+    
+
+    </form>
+
+
+
+
+
+    <br><br><br>
+
+    <div class="head" >
+    <h1>Return of Income</h1>
+    <h1>Individual</h1>
+    <br>
+    </div>
+<h2>Part 1 - Declaration of profits and income liable to TAX</h2>
+<br><br>
+       <form name="incomeForm">
+    <div class="data">
+      <div class="field">
+        <label for="emp_income">1) Income from Employment</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="emp_income" name="employ_income">
+      </div>
+    </div>
+           
+    <div class="data">
+      <div class="field">
+        <label for="trade_profit">2) Profits from Trade,Business or Vocation</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="trade_profit" name="trade_profit">
+      </div>
+    </div>
+           
+           <div class="data">
+      <div class="field">
+        <label for="ann_value">3) Net annual value</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="ann_value" name="annual_value">
+      </div>
+    </div>
+           
+           <div class="data">
+      <div class="field">
+        <label for="dividend">4) Dividend</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="dividend" name="dividend">
+      </div>
+    </div>
+                    
+           <div class="data">
+      <div class="field">
+        <label for="interest">5) Interest</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="interest" name="interest">
+      </div>
+    </div>
+                 
+           <div class="data">
+      <div class="field">
+        <label for="annui_loyali">6) Annuities and Loyalities</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="annui_loyali" name="annuities_loyalities">
+      </div>
+    </div>
+        <div class="data">
+      <div class="field">
+        <label for="oth_income">7) Income from any other source</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="oth_income" name="other_income">
+      </div>
+    </div>
+    <br>
+
+      <div class="btn1">
+        <input type="button" id="incomebtn1" value="Verify Above Details" onclick="myFunction()">
+    <script src="income.js">
+    function myFunction() {
+    document.getElementById("tot_income").value = statutoryIncome();
+    }
+    </script>
+    </div>
+
+
+    <br>
+           
+        <div class="data">
+      <div class="field">
+        <label for="tot_income">Total Statutory Income</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="tot_income" name="total_income" readonly>
+      </div>
+    </div>
+    <br><br><br>  
+
+<h2>Part 2 - Deductions from total Statutory Income</h2>
+<br><br>
+              
+    <div class="data">
+      <div class="field">
+        <label for="losses">8) Deductible losses from Trade,Business or Vocation</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="losses" name="losses">
+      </div>
+    </div>
+                
+    <div class="data">
+      <div class="field">
+        <label for="int_annui">9) Interest,Annuities,Royalities and ground rest</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="int_annui" name="int_annui">
+      </div>
+     </div>               
+    <div class="data">
+      <div class="field">
+        <label for="quli_payments">10) Qualifying payments</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="quli_payments" name="quli_payments">
+      </div>
+    </div>
+
+    <br>
+
+      <div class="btn1">
+        <input type="button" id="incomebtn2" value="Verify Above Details" onclick="myFunction1()">
+
+        <script src="income.js">
+    function myFunction1() {
+    document.getElementById("tax_income").value = taxableIncome();
+    }
+    </script>
+
+      </div>
+
+
+    <br>
+             
+        <div class="data">
+      <div class="field">
+        <label for="tax_income">Taxable Income</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="tax_income" name="taxable_income" readonly>
+      </div>
+    </div>
+    <br><br><br>
+       
+<h2>Part 3 - Calculations of Income TAX payable</h2>
+<br><br>
+              
+    <div class="data">
+      <div class="field">
+        <label for="tax_credits">11) Tax credits</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="tax_credits" name="tax_credits">
+      </div>
+    </div>
+                
+    <div class="data">
+      <div class="field">
+        <label for="bal_tax">12) TAX on balance taxable income</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="bal_tax" name="bal_tax">
+      </div>
+     </div>
+
+     <br>
+
+      <div class="btn1">
+        <input type="button" id="incomebtn3" value="Verify Above Details" onclick="myFunction2()">
+
+          <script src="income.js">
+    function myFunction2() {
+    document.getElementById("tax_payable").value = taxPayable();
+    }
+    </script>
+      </div>
+
+    <br>
+
+    <div class="data">
+      <div class="field">
+        <label for="tax_payable">Tax Payable</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="tax_payable" name="tax_payable" readonly>
+      </div>
+    </div>
+    <br><br><br>
+             
+<h2>Part 4 - Income not included in Statutory Income and Income Exempted from TAX</h2>
+<br><br>
+              
+         
+    <div class="data">
+      <div class="field">
+        <label for="int_income">a) Income not included in Total Statutory Income</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="int_income" name="int_income">
+      </div>
+     </div>
+           <div class="data">
+      <div class="field">
+        <label for="inc_exempt">b) Income Exempt from TAX</label>
+      </div>
+      <div class="entry">
+        <input type="text" id="inc_exempt" name="inc_exempt">
+      </div>
+    </div>
+
+    <div>
+	   <p>I here by verify that the above mentioned details are true</p>
+	   <input type="button" onclick="alertMsg()" value="VERIFY">
+	   <script type="text/javascript">
+	    function alertMsg(){
+			alert("You have verified your details successfully!");
+		}
+	   </script>
+	</div>
+	
+	
+	<div class="view">
+   <a href="#demo1" onclick="IndexVerification()">View and Download </a>
+    </div>
+
+
+    </form>
+    <br><br><br>
+
+    
+
+
+    
+
+    
+
+
+
+
+
+ 
+       
+  </div>
+
+
+      
+
+
+
+      
+
+
+
+
+    <div class="print">
+      
+      
+      <p id="demo1"></p>
+
+      <table>
+        <tr>
+          <td><p id="demo2.1"></p></td>
+          <td><p id="demo2"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo3.1"></p></td>
+          <td><p id="demo3"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo4.1"></p></td>
+          <td><p id="demo4"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo5.1"></p></td>
+          <td><p id="demo5"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo6.1"></p></td>
+          <td><p id="demo6"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo7.1"></p></td>
+          <td><p id="demo7"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo8.1"></p></td>
+          <td><p id="demo8"></p></td>
+        </tr>
+
+
+      </table>
+
+
+
+
+
+      <p id="demo10"></p>
+      <p id="demo11"></p>
+
+      <table>
+        <tr>
+          <td><p id="demo12"></p></td>
+          <td><p id="demo12.1"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo13"></p></td>
+          <td><p id="demo13.1"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo14"></p></td>
+          <td><p id="demo14.1"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo15"></p></td>
+          <td><p id="demo15.1"></p></td>
+        </tr>
+
+        </table>
+
+
+
+        <p id="demo16"></p>
+        
+        <table>
+
+        <tr>
+          <td><p id="demo17"></p></td>
+          <td><p id="demo17.1"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo18"></p></td>
+          <td><p id="demo18.1"></p></td>
+        </tr>
+
+        </table>
+
+
+      
+
+
+
+
+
+      <p id="demo19"></p>
+
+      <p id="demo20"></p>
+
+      <table>
+        <tr>
+          <td><p id="demo21"></p></td>
+          <td><p id="demo21.1"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo22"></p></td>
+          <td><p id="demo22.1"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo23"></p></td>
+          <td><p id="demo23.1"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo24"></p></td>
+          <td><p id="demo24.1"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo25"></p></td>
+          <td><p id="demo25.1"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo26"></p></td>
+          <td><p id="demo26.1"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo27"></p></td>
+          <td><p id="demo27.1"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo28"></p></td>
+          <td><p id="demo28.1"></p></td>
+        </tr>
+
+
+      </table>
+
+      <p id="demo29"></p>
+
+      <table>
+
+        <tr>
+          <td><p id="demo30"></p></td>
+          <td><p id="demo30.1"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo31"></p></td>
+          <td><p id="demo31.1"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo32"></p></td>
+          <td><p id="demo32.1"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo33"></p></td>
+          <td><p id="demo33.1"></p></td>
+        </tr>
+
+      </table>
+
+        <p id="demo34"></p>
+
+        <table>
+
+        <tr>
+          <td><p id="demo35"></p></td>
+          <td><p id="demo35.1"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo36"></p></td>
+          <td><p id="demo36.1"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo37"></p></td>
+          <td><p id="demo37.1"></p></td>
+        </tr>
+
+      </table>
+
+      <p id="demo38"></p>
+
+      <table>
+
+        <tr>
+          <td><p id="demo39"></p></td>
+          <td><p id="demo39.1"></p></td>
+        </tr>
+
+        <tr>
+          <td><p id="demo40"></p></td>
+          <td><p id="demo40.1"></p></td>
+        </tr>
+
+
+      </table>
+
+
+
+
+      
+  
+
+
+
+    
+      <p id="demo10"></p>
+      <p id="demo11"></p>
+      <p id="demo12"></p>
+      <p id="demo13"></p>
+      <p id="demo14"></p>
+      <p id="demo15"></p>
+      <p id="demo16"></p>
+      <p id="demo17"></p>
+      <p id="demo18"></p>
+  
+    
+      
+      <p id="demo19"></p>
+      <p id="demo20"></p>
+      <p id="demo21"></p>
+      <p id="demo22"></p>
+      <p id="demo23"></p>
+      <p id="demo24"></p>
+      <p id="demo25"></p>
+      <p id="demo26"></p>
+      <p id="demo27"></p>
+      <p id="demo28"></p>
+      <p id="demo29"></p>
+      <p id="demo30"></p>
+      <p id="demo31"></p>
+      <p id="demo32"></p>
+      <p id="demo33"></p>
+      <p id="demo34"></p>
+      <p id="demo35"></p>
+      <p id="demo36"></p>
+      <p id="demo37"></p>
+      <p id="demo38"></p>
+      <p id="demo39"></p>
+      <p id="demo40"></p>
+      <br><br><br>
+      
+      
+  
+</div>
+      
+      
+      <a href="" onclick="HTMLtoPDF()" id="demo41">Download Your Formset</a>
+
+
+<br>
+<br>
+<br>
+
+
+
+
+</body>
+</html>

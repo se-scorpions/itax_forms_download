@@ -1,0 +1,154 @@
+        * {
+    box-sizing: border-box;
+} 
+        
+        input[type=text]  {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+}
+        
+    label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+        
+        .head {
+           text-align: center; 
+        }
+        
+    .container {
+    border-radius: 10px;
+    background-color: #99ff99;
+    padding: 20px;
+    border: 1px solid #222;
+}
+        
+        .field {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.entry {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+
+.data:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+#incomebtn1, #incomebtn2, #incomebtn3 {
+    margin-left: 50%;
+    height: 30px;
+    font-size: 14px;
+    color: #003366;
+    border-color: #003366;
+    background-color: 
+}
+ 
+
+
+
+.print {
+  margin-left: 300px;
+  margin-top: 50px;
+  font-size: 20px;
+
+}
+
+#demo00 {
+  text-align: center;
+
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .field, .entry, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+* {
+    box-sizing: border-box;
+} 
+        
+        input[type=text]  {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+
+        
+    label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+        
+        .head {
+           text-align: center; 
+        }
+        
+        .container {
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border: 1px solid #222;
+}
+        
+        .field {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.entry {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+
+.data:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.print {
+  margin-left: 50px;
+  margin-top: 50px;
+  font-size: 20px;
+
+}
+
+#demo1 {
+  text-align: center;
+
+}
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
+    .field, .entry, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
